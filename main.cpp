@@ -1,17 +1,30 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 int main() {
-   
-    int score1, score2, score3;
-    cout << "請輸入3次分數(0~100): ";
-    cin >> score1 >> score2 >> score3;
-    double averageScore = (score1 + score2 + score3)/3;
-    if (score1 < 40 || score2 < 40 || score3 < 40) {
-        cout << "不及格\n";
-    } else if (averageScore >= 60) {
-        cout << "你及格\n";
-    } else if (averageScore < 60) {
-        cout << "不及格\n";
+    int score[10] = {85, 90, 60, 92, 100, 76, 50, 89, 84, 40};
+    int gradeCount[5] = {0};
+
+    for (int i = 0; i < 10; ++i) {
+        if (score[i] >= 90) {
+            gradeCount[0]++; // A
+        } else if (score[i] >= 80) {
+            gradeCount[1]++; // B
+        } else if (score[i] >= 70) {
+            gradeCount[2]++; // C
+        } else if (score[i] >= 60) {
+            gradeCount[3]++; // D
+        } else {
+            gradeCount[4]++; // F
+        }
     }
-    cout << "你的平均為: \a" << averageScore;
+
+    cout << "A等人數: " << gradeCount[0] << endl;
+    cout << "B等人數: " << gradeCount[1] << endl;
+    cout << "C等人數: " << gradeCount[2] << endl;
+    cout << "D等人數: " << gradeCount[3] << endl;
+    cout << "F等人數: " << gradeCount[4] << endl;
 
     return 0;
 }
